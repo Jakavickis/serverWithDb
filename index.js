@@ -35,3 +35,4 @@ app.get('/db', (req, res) => {
 
 app.listen(port, () => console.log(`starting server on port ${port}`));
 
+// SELECT note FROM todoapp.notes n;

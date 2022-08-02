@@ -2,3 +2,12 @@
     background-color: wheat;
 }
 
+#note-input {
+    display: flex;
+}
+
+#note-input input {
+    padding: 6px;
+    width: 50%;
+}
+

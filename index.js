@@ -1,6 +1,7 @@
 import express from 'express';
 import handlebars from 'express-handlebars';
 import mysql from 'mysql2';
+import mainPage from './lib/mainPage.js';
 
 const app = express();
 const port = 8081;
@@ -16,7 +17,7 @@ app.get('/test', (req, res) => res.render('test'));
 
 
 // app.get('/', (req, res) => res.send("hi"));
-app.get('/', (req, res) => res.render('index'));
+app.get('/', mainPage);
 
 const connection = mysql.createConnection({
     host: 'localhost',

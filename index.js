@@ -1,6 +1,6 @@
 import express from 'express';
 import handlebars from 'express-handlebars';
-import { renderMainPage, insertNewNote, deleteNote, editNote } from './lib/mainPage.js';
+import { renderMainPage, insertNewNote, deleteNote, editNote } from './src/routes.js';
 
 const app = express();
 const port = 8081;

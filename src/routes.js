@@ -1,4 +1,5 @@
-import mysql from 'mysql2';
+import { connect } from "./connect.js";
+import { getNotes, saveNotes, saveNoteChanges, deleteNoteById } from "./database.js"
 
 export function renderMainPage(req, res) {
     const model = {};
@@ -49,52 +50,4 @@ export function editNote(req, res) {
         .then(_ => saveNoteChanges(connect(), id, note))
         .then(_ => res.status(200).send())
         .catch(_ => res.status(400).send())
-}
-
-function connect() {
-    return mysql.createConnection({
-        host: 'localhost',
-        port: '3306',
-        user: 'todoapp',
-        password: 'bit',
-        database: 'todoapp'
-    });
-}
-
-async function getNotes(connection) {
-    return await new Promise((resolve, reject) => {
-        connection.execute('SELECT notes_id, note FROM todoapp.notes n;', (err, rows) => {
-            if (err) return reject(err);
-
-            const notes = rows;
-            return resolve(notes);
-        })
-    })
-}
-
-async function saveNotes(connection, note) {
-    return await new Promise((resolve, reject) => {
-        connection.execute('INSERT notes(note) VALUES(?)', [note], (err, _) => {
-            if (err) return reject(err);
-            resolve();
-        });
-    });
-}
-
-async function deleteNoteById(connection, notes_id) {
-    return await new Promise((resolve, reject) => {
-        connection.execute('DELETE FROM notes WHERE notes_id = ?', [notes_id], (err, _) => {
-            if (err) return reject(err);
-            resolve();
-        });
-    });
-}
-
-async function saveNoteChanges(connection, notes_id, note) {
-    return await new Promise((resolve, reject) => {
-        connection.execute('UPDATE notes SET note=? WHERE notes_id=?', [note, notes_id], (err, _) => {
-            if (err) return reject(err);
-            resolve();
-        });
-    });
 }

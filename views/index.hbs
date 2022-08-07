@@ -13,10 +13,12 @@
     <section>
         {{#each notes}}
         <div class="oneNoteLine">
-            <span>{{this.note}}</span>
-            <div class="oneNoteLineButtons">
-                <button>Edit</button>
-                <button onclick="deleteNote({{this.notes_id}})">Delete</button>
+            <span class="note-text">{{this.note}}</span>
+            <div class="oneNoteLineButtons buttons">
+                <button class="standard" onclick="editNote({{this.notes_id}}, this)">Edit</button>
+                <button class="standard" onclick="deleteNote({{this.notes_id}})">Delete</button>
+                <button class="edit hidden" onclick="saveEdit({{this.notes_id}}, this)">save</button>
+                <button class="edit hidden" onclick="undoEdit({{this.notes_id}}, this)">cancel</button>
             </div>
         </div>
         {{/each}}

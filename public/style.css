@@ -14,9 +14,17 @@
 .oneNoteLine {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 5px;
+    margin-top: 20px;
 }
 
 .oneNoteLineButtons button {
     border-radius: 5px;
+}
+
+.note-text[contentEditable="true"] {
+    color: green;
+}
+
+.hidden {
+    display: none;
 }

@@ -1,6 +1,6 @@
 import express from 'express';
 import handlebars from 'express-handlebars';
-import { renderMainPage, insertNewNote, deleteNote } from './lib/mainPage.js';
+import { renderMainPage, insertNewNote, deleteNote, editNote } from './lib/mainPage.js';
 
 const app = express();
 const port = 8081;
@@ -22,7 +22,8 @@ app.get('/test', (req, res) => res.render('test'));
 // app.get('/', (req, res) => res.send("hi"));
 app.get('/', renderMainPage);
 app.post('/', insertNewNote);
-app.delete('/', deleteNote)
+app.delete('/', deleteNote);
+app.patch('/', editNote)
 
 app.listen(port, () => console.log(`starting server on port ${port}`));
 

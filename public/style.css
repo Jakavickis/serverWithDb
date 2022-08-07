@@ -11,3 +11,12 @@
     width: 50%;
 }
 
+.oneNoteLine {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.oneNoteLineButtons button {
+    border-radius: 5px;
+}

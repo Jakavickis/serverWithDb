@@ -12,8 +12,12 @@
     </form>
     <section>
         {{#each notes}}
-        <div>
+        <div class="oneNoteLine">
             <span>{{this}}</span>
+            <div class="oneNoteLineButtons">
+                <button>Edit</button>
+                <button>Delete</button>
+            </div>
         </div>
         {{/each}}
     </section>

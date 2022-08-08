@@ -25,7 +25,7 @@ app.post('/', addNote);
 app.delete('/', deleteNote);
 app.patch('/', updateNote)
 
-app.listen(port, () => console.log(`starting server on port ${port}`));
+app.listen(port, () => console.log(`starting server on port localhost:${port}`));
 
 // SELECT note FROM todoapp.notes n;
 

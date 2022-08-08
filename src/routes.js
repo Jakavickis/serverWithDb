@@ -18,12 +18,12 @@ export function getNotes(req, res) {
 }
 
 export function addNote(req, res) {
-    const newNote = req.body.note;
     const model = {};
     model.title = 'My To-do App';
+    const { note, priority, style } = req.body;
     const connection = connect();
     Promise.resolve()
-        .then(_ => db.insertNote(connection, newNote))
+        .then(_ => db.insertNote(connection, note, priority))
         .then(_ => res.redirect('/'))
         .catch(err => {
             console.log(err)

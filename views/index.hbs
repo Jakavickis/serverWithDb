@@ -9,13 +9,23 @@
     <form id="note-input" method="post">
         <input type="tegetxt" name="note" placeholder="Enter a new note here!" />
         <input type="number" name="priority" placeholder="Place priority number" />
+        <select name="style">
+            <option value="0">Default</option>
+            <option value="1">Red</option>
+            <option value="2">Yellow</option>
+            <option value="3">Green</option>
+        </select>
         <button type="submit">Save</button>
     </form>
     <section>
         {{#each notes}}
-        <div class="oneNoteLine">
-            <span class="note-text">{{this.note}}</span>
+        <div class="oneNoteLine {{#if this.style}}style-{{this.style}}{{/if}}">
+            <span class="note-text">{{this.note}}
+            </span>
             <div class="oneNoteLineButtons buttons">
+                <span class="note-priority">
+                    priority: {{this.priority}}
+                </span>
                 <button class="standard" onclick="editNote({{this.notes_id}}, this)">Edit</button>
                 <button class="standard" onclick="deleteNote({{this.notes_id}}, this)">Delete</button>
                 <button class="edit hidden" onclick="saveEdit({{this.notes_id}}, this)">save</button>

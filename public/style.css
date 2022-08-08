@@ -32,31 +32,28 @@
 .oneNoteLine.style-1 {
     /*Raudonas*/
 
-    background-color: #f33;
     color: #253535;
-    box-shadow: #d88 0 0 4px 1px;
+    box-shadow: #d88 0 0 11px 12px;
 }
 
 .oneNoteLine.style-1 .note-priority {
-    color: #ddf;
+    color: #253535;
 }
 
 .oneNoteLine.style-2 {
     /*geltonas*/
 
-    background-color: #bb6;
     color: #253535;
-    box-shadow: #bb8 0 0 4px 1px;
+    box-shadow: #bb8 0 0 11px 12px;
 }
 
 .oneNoteLine.style-3 {
     /*zalias*/
 
-    background-color: #696;
     color: #253535;
-    box-shadow: #d88 0 0 4px 1px;
+    box-shadow: #d88 0 0 11px 12px;
 }
 
 .oneNoteLine.style-3 .note-priority {
-    color: #ddf;
+    color: #253535;
 }

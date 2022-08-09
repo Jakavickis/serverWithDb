@@ -18,6 +18,24 @@ export async function insertNote(connection, note, priority) {
     });
 }
 
+export async function lastInsertRow(connection) {
+    return await new Promise((resolve, reject) => {
+        connection.execute('SELECT id FROM last_insert_row;', (err, result) => {
+            if (err) return reject(err);
+            resolve(result[0].id);
+        });
+    });
+}
+
+export async function insertStyle(connection, notes_id, style) {
+    return await new Promise((resolve, reject) => {
+        connection.execute('INSERT todoapp.note_style(notes_id, style) VALUES(?, ?)', [notes_id, style], (err, result) => {
+            if (err) return reject(err);
+            resolve();
+        });
+    });
+}
+
 export async function deleteNote(connection, notes_id) {
     return await new Promise((resolve, reject) => {
         connection.execute('DELETE FROM notes WHERE notes_id = ?', [notes_id], (err, _) => {

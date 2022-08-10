@@ -1,0 +1,14 @@
+<style>
+    {{#each styles}}
+        {{#if this.bodyCSS}}
+            .oneNoteLine.style-{{this.styleId}} {
+                {{this.bodyCSS}}
+            }
+        {{/if}}
+        {{#if this.priorityCSS}}
+            .oneNoteLine.style-{{this.styleId}} .note-priority {
+                {{this.priorityCSS}}
+            }
+        {{/if}}
+    {{/each}}
+</style>

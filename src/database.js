@@ -8,8 +8,18 @@ export async function selectNotes(connection) {
         })
     })
 }
+export async function selectStyles(connection) {
+    return await new Promise((resolve, reject) => {
+        connection.execute('SELECT * FROM todoapp.style', (err, rows) => {
+            if (err) return reject(err);
+            const notes = rows;
+            return resolve(notes);
+        })
+    });
+}
 
 export async function insertNote(connection, note, priority) {
+    priority = (!priority || priority.length == 0) ? '0' : priority;
     return await new Promise((resolve, reject) => {
         connection.execute('INSERT notes(note, priority) VALUES(?, ?)', [note, priority], (err, _) => {
             if (err) return reject(err);
@@ -28,6 +38,7 @@ export async function lastInsertRow(connection) {
 }
 
 export async function insertStyle(connection, notes_id, style) {
+    if (style == '0') return;
     return await new Promise((resolve, reject) => {
         connection.execute('INSERT todoapp.note_style(notes_id, style) VALUES(?, ?)', [notes_id, style], (err, result) => {
             if (err) return reject(err);

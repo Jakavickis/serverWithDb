@@ -1,4 +1,5 @@
 {{#with model}}
+{{> dynamic-style this}}
 <div id="title-container">
     <h1>
         {{title}}
@@ -10,10 +11,10 @@
         <input type="tegetxt" name="note" placeholder="Enter a new note here!" />
         <input type="number" name="priority" placeholder="Place priority number" />
         <select name="style">
-            <option value="0">Default</option>
-            <option value="1">Red</option>
-            <option value="2">Yellow</option>
-            <option value="3">Green</option>
+            {{#each styles}}
+            <option value="0" class="note">Default</option>
+            <option value="{{this.stylesId}}" class="note style-{{this.styleId}}">{{this.name}}</option>
+            {{/each}}
         </select>
         <button type="submit">Save</button>
     </form>

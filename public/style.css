@@ -18,6 +18,7 @@
 }
 
 .oneNoteLineButtons button {
+    color: #b88;
     border-radius: 5px;
 }
 
@@ -29,16 +30,15 @@
     display: none;
 }
 
-.oneNoteLine.style-1 {
-    /*Raudonas*/
+/* .oneNoteLine.style-1 {
+    Raudonas
 
-    color: #253535;
-    box-shadow: #d88 0 0 11px 12px;
+    color: #253535; box-shadow: #d88 0 0 11px 12px;
 }
 
 .oneNoteLine.style-1 .note-priority {
     color: #253535;
-}
+} */
 
 .oneNoteLine.style-2 {
     /*geltonas*/
@@ -54,6 +54,6 @@
     box-shadow: #d88 0 0 11px 12px;
 }
 
-.oneNoteLine.style-3 .note-priority {
+/* .oneNoteLine.style-3 .note-priority {
     color: #253535;
-}
+} */

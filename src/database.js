@@ -92,3 +92,12 @@ export async function insertToken(connection, token, user_id) {
         });
     })
 }
+
+export async function selectToken(connection, token) {
+    return await new Promise((resolve, reject) => {
+        connection.execute('SELECT * FROM todoapp.logintokens WHERE token = ?;', [token], (err, result) => {
+            if (err) return reject(err);
+            resolve(!!result[0]);
+        });
+    });
+}

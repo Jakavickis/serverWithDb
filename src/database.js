@@ -64,3 +64,12 @@ export async function updateNote(connection, notes_id, note) {
         });
     });
 }
+
+export async function insertUser(connection, username, hash) {
+    return await new Promise((resolve, reject) => {
+        connection.execute('INSERT todoapp.users(username, passwordHash) VALUES(?, ?)', [username, hash], (err, _) => {
+            if (err) return reject(err);
+            resolve();
+        });
+    });
+}

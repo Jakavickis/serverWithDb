@@ -26,7 +26,7 @@ app.delete('/', deleteNote);
 app.patch('/', updateNote);
 
 app.get('/register', startRegistration);
-app.post('/registration', handleRegistration);
+app.post('/register', handleRegistration);
 app.get('/login', loginPage);
 app.post('/login', handleLogin);
 

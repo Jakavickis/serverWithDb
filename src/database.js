@@ -73,3 +73,13 @@ export async function insertUser(connection, username, hash) {
         });
     });
 }
+
+export async function selectUserByUsername(connection, username) {
+    return await new Promise((resolve, reject) => {
+        connection.execute('SELECT * FROM todoapp.users WHERE username = ?;', [username], (err, result) => {
+            if (err) return reject(err);
+            if (result.length === 0) return reject('No user');
+            resolve(result[0]);
+        });
+    });
+}

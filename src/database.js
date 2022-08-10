@@ -83,3 +83,12 @@ export async function selectUserByUsername(connection, username) {
         });
     });
 }
+
+export async function insertToken(connection, token, user_id) {
+    return await new Promise((resolve, reject) => {
+        connection.execute('INSERT todoapp.loginTokens(user_id, token) VALUES(?, ?)', [user_id, token], (err, _) => {
+            if (err) return reject(err);
+            resolve();
+        });
+    })
+}
